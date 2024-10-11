@@ -8,6 +8,18 @@ pipeline{
             
         }
         stage('Cat Jenkins file'){
+            when {
+                branch pattern: 'master', comparator: 'REGEXP'
+            }
+            steps{
+                sh 'echo "Hello from micro-1"'
+                sh 'cat Jenkinsfile'
+            }
+        }
+        stage('Cat Jenkins file'){
+            when {
+                branch pattern: 'fix.*', comparator: 'REGEXP'
+            }
             steps{
                 sh 'echo "Hello from micro-1"'
                 sh 'cat Jenkinsfile'
