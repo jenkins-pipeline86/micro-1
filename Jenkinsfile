@@ -16,6 +16,7 @@ pipeline{
                 sh 'cat Jenkinsfile'
             }
         }
+        
         stage('Cat Jenkins file'){
             when {
                 branch pattern: 'fix.*', comparator: 'REGEXP'
